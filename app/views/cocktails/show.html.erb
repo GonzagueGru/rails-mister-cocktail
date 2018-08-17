@@ -1,6 +1,14 @@
 <div class="container">
   <h1>Cocktail's description</h1>
-
+    <% if @cocktail.photo.present? %>
+<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+<% else %>
+ <img alt="random beverage"
+     width="400"
+     height="300"
+     crop="fill"
+     src="https://loremflickr.com/320/240/beverage" />
+     <% end %>
   <h3><%= @cocktail.name %></h3>
   <ul>
     <%  @cocktail.doses.each do |dose| %>
@@ -14,5 +22,7 @@
   <%=link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-warning" %>
 <br><br><br>
 
-  <%=link_to "Back to the list", cocktails_path(@cocktail) %>
+  <%=link_to "Back to the list", cocktails_path %>
 </div>
+
+

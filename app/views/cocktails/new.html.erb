@@ -4,8 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      <%=  simple_form_for [@cocktail] do |f| %>
+      <%=  simple_form_for @cocktail do |f| %>
         <%= f.input :name, placeholder: 'Bloody Mary, Mojito' %>
+          <%= f.input :photo %>
+          <%= f.error_notification message: 'Something went wrong' %>
+          <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit 'Add', class: 'btn btn-success' %>
       <% end %>
         <%=link_to "Back to the list", cocktails_path(@cocktail) %>
@@ -13,3 +16,4 @@
   </div>
 
 </div>
+

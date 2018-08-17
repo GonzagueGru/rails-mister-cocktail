@@ -1,4 +1,10 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240/beverage');">
+<% if cocktail.photo.present? %>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+<% else %>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240/beverage')">
+
+<% end %>
+
   <div class="card-category"></div>
   <div class="card-description">
     <h2><b> <%= cocktail.name%> </b></h2>
@@ -10,3 +16,4 @@
   </div>
   <%= link_to '', cocktail_path(cocktail), class: 'card-link' %>
 </div>
+

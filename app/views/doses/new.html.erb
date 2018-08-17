@@ -9,6 +9,8 @@
         <%= f.input :description, placeholder: '10 cl, some drop...' %>
         <%= f.submit 'Add', class: 'btn btn-success' %>
       <% end %>
+      <br>
+       <%=link_to "No more! Back to the list", cocktails_path(@cocktail) %>
     </div>
   </div>
 
