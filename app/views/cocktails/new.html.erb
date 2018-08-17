@@ -1,26 +1,15 @@
 <div class="container">
 <h1>Create a new cocktail</h1>
 
-<%= form_with(model: @cocktail, local: true) do |form| %>
-  <% if @cocktail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@coktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
-
-      <ul>
-      <% @cocktail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%=  simple_form_for [@cocktail] do |f| %>
+        <%= f.input :name, placeholder: 'Bloody Mary, Mojito' %>
+        <%= f.submit 'Add', class: 'btn btn-success' %>
       <% end %>
-      </ul>
+        <%=link_to "Back to the list", cocktails_path(@cocktail) %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 </div>
